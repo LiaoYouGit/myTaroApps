@@ -138,6 +138,11 @@ async function joinCart(){
     icon:'success',
   })
 }
+
+function onDetail(item){
+  Taro.setStorageSync('goods-details',item)
+  $navigateTo('/pages/goods/detail')
+}
 </script>
 
 <template>
@@ -202,8 +207,8 @@ async function joinCart(){
         <nut-cell v-for="item in listData" :key="item.skuId">
           <view class="goods-item">
             <nut-checkbox :label="item.skuId" />
-            <img :src="item.picture" class="goods-item-picture" alt="加载失败" @tap="$navigateTo(`/pages/goods/detail?describeUrl=${item.describeUrl}`)"/>
-            <view class="goods-item-desc" @tap="$navigateTo(`/pages/goods/detail?describeUrl=${item.describeUrl}`)">
+            <img :src="item.picture" class="goods-item-picture" alt="加载失败" @tap="onDetail(item)"/>
+            <view class="goods-item-desc" @tap="onDetail(item)">
               <view>
                 <strong class="goods-item-desc-skuName">{{
                   item.skuName

@@ -1,13 +1,13 @@
 <script lang="ts" setup>
-import { computed, ref } from 'vue'
-import { useRouter } from "@tarojs/taro";
+import { ref } from 'vue'
+import Taro from "@tarojs/taro";
 import { $navigateBack } from '@/lib/util';
-const router = useRouter();
-const content = computed(()=>router.params.describeUrl || null)
+
+const item = ref(Taro.getStorageSync("goods-details"))
 </script>
 <template>
    <view class="detail-content">
-      <view v-if="content" v-html="content">
+      <view v-if="item.describeUrl" v-html="item.describeUrl">
       </view>
       <view v-else>
         <nut-empty image="empty" description="无内容"></nut-empty>

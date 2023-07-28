@@ -8,6 +8,8 @@ export default defineAppConfig({
     '/pages/goods/createSales',
     // 采购单管理
     'pages/order/index',
+    // 采购单详情
+    '/pages/order/detail',
     // 审批管理
     'pages/apply/index',
     // 我的
